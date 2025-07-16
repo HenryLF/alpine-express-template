@@ -12,7 +12,7 @@
     "build": "rm -rf build/* && concurrently npm:build:*",
     "build:server": "tsc",
     "build:client": "node build.client.mjs",
-    "build:css": "tailwindcss -i src/css/global.css -o build/public/style.css",
+    "build:css": "tailwindcss -i src/css/global.css -o build/public/style.css --minify",
     "build:copy": "cpx src/**/*.{ejs,svg} build/"
   },
   "author": "",
