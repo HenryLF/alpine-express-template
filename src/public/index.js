@@ -3282,6 +3282,25 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
   var src_default = alpine_default;
   var module_default = src_default;
 
-  // src/public/lib/index.ts
+  // src/public/lib/darkMode.ts
+  function storeDarkMode(enabled) {
+    localStorage.setItem("darkMode", enabled ? "enabled" : "disabled");
+  }
+  function isDarkModeEnabled() {
+    if (!localStorage.getItem("darkMode")) {
+      storeDarkMode(matchMedia("(prefers-color-scheme: dark)").matches);
+    }
+    return localStorage.getItem("darkMode") == "enabled";
+  }
+  var darkMode = {
+    on: isDarkModeEnabled(),
+    toggle() {
+      this.on = !this.on;
+      storeDarkMode(this.on);
+    }
+  };
+  module_default.store("darkMode", darkMode);
+
+  // src/public/index.ts
   module_default.start();
 })();

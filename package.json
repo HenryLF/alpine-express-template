@@ -21,13 +21,14 @@
     "@types/alpinejs": "^3.13.11",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
+    "@types/js-cookie": "^3.0.6",
     "@types/morgan": "^1.9.10",
+    "alpinejs": "^3.14.9",
     "concurrently": "^9.2.0",
     "cpx": "^1.2.1",
     "morgan": "^1.10.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.8.3",
-    "alpinejs": "^3.14.9"
+    "typescript": "^5.8.3"
   },
   "dependencies": {
     "@tailwindcss/cli": "^4.1.11",
@@ -36,6 +37,7 @@
     "ejs": "^3.1.10",
     "esbuild": "^0.25.6",
     "express": "^5.1.0",
+    "js-cookie": "^3.0.5",
     "tailwindcss": "^4.1.11"
   }
 }

@@ -5,8 +5,8 @@ const [_, __, ...args] = process.argv;
 if (args[0] == "dev") {
   console.log("building dev");
   const ctx = await context({
-    entryPoints: ["src/public/lib/**/*.ts"],
-    outdir: "src/public/lib/",
+    entryPoints: ["src/public/*.ts"],
+    outdir: "src/public/",
     bundle: true,
     minify: false,
   });
@@ -15,8 +15,8 @@ if (args[0] == "dev") {
 }
 
 await build({
-  entryPoints: ["src/public/lib/**/*.ts"],
-  outdir: "build/public/lib/",
+  entryPoints: ["src/public/*.ts"],
+  outdir: "build/public/",
   bundle: true,
   minify: true,
 });
