@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="module" src="/lib/index.js"></script>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body
+    x-data="{dark : matchMedia('(prefers-color-scheme: dark)')}"
+    :class="dark && 'dark'"
+    class="flex items-center justify-center"
+  >
+    <button class="" x-text="dark ? 'Light' : 'Dark'"
+    @click="dark=!dark"
+    ></button>
+  </body>
+</html>

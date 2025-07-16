@@ -1,0 +1,41 @@
+{
+  "name": "henrytree",
+  "version": "1.0.0",
+  "description": "a customisable clone of link tree",
+  "main": "src/app.ts",
+  "scripts": {
+    "start": "export NODE_ENV=prod; nodemon build/app.js",
+    "dev": "export NODE_ENV=dev; concurrently npm:dev:*",
+    "dev:server": "nodemon src/app.ts",
+    "dev:client": "node build.client.mjs dev",
+    "dev:css": "tailwindcss -i src/css/global.css -o src/public/style.css --watch",
+    "build": "rm -rf build/* && concurrently npm:build:*",
+    "build:server": "tsc",
+    "build:client": "node build.client.mjs",
+    "build:css": "tailwindcss -i src/css/global.css -o build/public/style.css",
+    "build:copy": "cpx src/**/*.{ejs,svg} build/"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/alpinejs": "^3.13.11",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/morgan": "^1.9.10",
+    "concurrently": "^9.2.0",
+    "cpx": "^1.2.1",
+    "morgan": "^1.10.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3",
+    "alpinejs": "^3.14.9"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.11",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.0",
+    "ejs": "^3.1.10",
+    "esbuild": "^0.25.6",
+    "express": "^5.1.0",
+    "tailwindcss": "^4.1.11"
+  }
+}

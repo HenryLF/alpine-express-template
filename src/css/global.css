@@ -1,0 +1,25 @@
+@import "tailwindcss";
+@import "./utilities.css";
+
+@theme {
+  --color-main: #000000;
+  --color-dark-main: #ffffff;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+html {
+  all: unset;
+  @apply -text-color-main;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  @apply color-main;
+}
+
+button {
+  @apply p-1 -color-main text-color-main;
+}
