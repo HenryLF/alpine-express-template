@@ -13,8 +13,9 @@
     class="flex items-center justify-center"
   >
     <button
-      x-text="$store.darkMode.on ? 'Light' : 'Dark'"
+      x-text="$store.darkMode.on ? 'Dark' : 'Light'"
       @click="$store.darkMode.toggle()"
+      x-init="console.log($store.darkMode.on)"
     ></button>
   </body>
 </html>

@@ -2,8 +2,10 @@
 @import "./utilities.css";
 
 @theme {
-  --color-main: #000000;
   --color-dark-main: #ffffff;
+  --color-main: #000000;
+  --color-background: #ffffff;
+  --color-dark-background: #000000;
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -17,9 +19,16 @@ body {
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-  @apply color-main;
+  @apply color-background;
 }
 
-button {
-  @apply p-2 rounded -color-main text-color-main;
+button,
+section {
+  @apply p-2  color-background text-color-main;
+  @apply rounded border-1 -border-color-background;
+  @apply transition-all duration-200;
+  @apply shadow-xs dark:shadow-background shadow-dark-background;
+}
+button:hover {
+  @apply scale-105;
 }

@@ -12,10 +12,16 @@ function isDarkModeEnabled() {
 }
 
 const darkMode = {
-  on: isDarkModeEnabled(),
+  _: isDarkModeEnabled(),
+  set on(v: boolean) {
+    storeDarkMode(v);
+    this._ = v;
+  },
+  get on() {
+    return this._;
+  },
   toggle() {
-    this.on = !this.on;
-    storeDarkMode(this.on);
+    this._ = !this._;
   },
 };
 

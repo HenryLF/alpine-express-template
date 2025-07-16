@@ -13,8 +13,10 @@
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
-    --color-main: #000000;
     --color-dark-main: #ffffff;
+    --color-main: #000000;
+    --color-background: #ffffff;
+    --color-dark-background: #000000;
   }
 }
 @layer base {
@@ -222,13 +224,12 @@ body {
   transition-duration: 400ms;
   --tw-ease: var(--ease-in);
   transition-timing-function: var(--ease-in);
-  background-color: var(--color-main);
+  background-color: var(--color-background);
   &:where(.dark, .dark *) {
-    background-color: var(--color-dark-main);
+    background-color: var(--color-dark-background);
   }
 }
-button {
-  border-radius: 0.25rem;
+button, section {
   transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
   transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
   transition-duration: var(--tw-duration, var(--default-transition-duration));
@@ -236,9 +237,9 @@ button {
   transition-duration: 400ms;
   --tw-ease: var(--ease-in);
   transition-timing-function: var(--ease-in);
-  background-color: var(--color-dark-main);
+  background-color: var(--color-background);
   &:where(.dark, .dark *) {
-    background-color: var(--color-main);
+    background-color: var(--color-dark-background);
   }
   padding: calc(var(--spacing) * 2);
   transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
@@ -252,6 +253,42 @@ button {
   &:where(.dark, .dark *) {
     color: var(--color-dark-main);
   }
+  border-radius: 0.25rem;
+  border-style: var(--tw-border-style);
+  border-width: 1px;
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
+  transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+  transition-duration: var(--tw-duration, var(--default-transition-duration));
+  --tw-duration: 400ms;
+  transition-duration: 400ms;
+  --tw-ease: var(--ease-in);
+  transition-timing-function: var(--ease-in);
+  &:where(.dark, .dark *) {
+    border-color: var(--color-background);
+  }
+  transition-property: all;
+  transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+  transition-duration: var(--tw-duration, var(--default-transition-duration));
+  --tw-duration: 200ms;
+  transition-duration: 200ms;
+  --tw-shadow: 0 1px 2px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.05));
+  box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  --tw-shadow-color: #000000;
+  @supports (color: color-mix(in lab, red, red)) {
+    --tw-shadow-color: color-mix(in oklab, var(--color-dark-background) var(--tw-shadow-alpha), transparent);
+  }
+  &:where(.dark, .dark *) {
+    --tw-shadow-color: #ffffff;
+    @supports (color: color-mix(in lab, red, red)) {
+      --tw-shadow-color: color-mix(in oklab, var(--color-background) var(--tw-shadow-alpha), transparent);
+    }
+  }
+}
+button:hover {
+  --tw-scale-x: 105%;
+  --tw-scale-y: 105%;
+  --tw-scale-z: 105%;
+  scale: var(--tw-scale-x) var(--tw-scale-y);
 }
 @property --tw-rotate-x {
   syntax: "*";
@@ -346,6 +383,26 @@ button {
   syntax: "*";
   inherits: false;
 }
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --tw-scale-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@property --tw-scale-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@property --tw-scale-z {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
@@ -370,6 +427,10 @@ button {
       --tw-ring-offset-shadow: 0 0 #0000;
       --tw-duration: initial;
       --tw-ease: initial;
+      --tw-border-style: solid;
+      --tw-scale-x: 1;
+      --tw-scale-y: 1;
+      --tw-scale-z: 1;
     }
   }
 }

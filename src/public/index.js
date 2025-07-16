@@ -3293,10 +3293,16 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     return localStorage.getItem("darkMode") == "enabled";
   }
   var darkMode = {
-    on: isDarkModeEnabled(),
+    _: isDarkModeEnabled(),
+    set on(v) {
+      storeDarkMode(v);
+      this._ = v;
+    },
+    get on() {
+      return this._;
+    },
     toggle() {
-      this.on = !this.on;
-      storeDarkMode(this.on);
+      this._ = !this._;
     }
   };
   module_default.store("darkMode", darkMode);

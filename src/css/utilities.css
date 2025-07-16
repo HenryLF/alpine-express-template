@@ -29,3 +29,19 @@
     color: --value(--color- *);
   }
 }
+
+@utility border-color-* {
+  @apply transition-colors duration-400 ease-in;
+  color: --value(--color- *);
+  &:where(.dark, .dark *) {
+    color: --value(--color-dark- *);
+  }
+}
+
+@utility -border-color-* {
+  @apply transition-colors duration-400 ease-in;
+  border-color: --value(--color-dark *);
+  &:where(.dark, .dark *) {
+    border-color: --value(--color- *);
+  }
+}
